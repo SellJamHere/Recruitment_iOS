@@ -14,10 +14,10 @@
 
 #import "SJHPopoverContentViewController.h"
 
-#import "SJHAppDelegate.h"
-#import "Recruit.h"
+#import "SJHCoreDataHandler.h"
+#import "SJHRecruit.h"
 
-#define kMajorString @"Aerospace Engineering", @"African American Studies", @"Anthropology", @"Art", @"Art History", @"Asian American Studies", @"Biochemistry and Molecular Biology", @"Biology/Education", @"Biological Sciences", @"Biomedical Engineering", @"Biomedical Engineering: Premedical", @"Business Administration", @"Business Economics", @"Business Information Management", @"Chemical Engineering", @"Chemistry", @"Chicano/Latino Studies", @"Chinese Studies", @"Civil Engineering", @"Classics", @"Cognitive Sciences", @"Comparative Literature", @"Computer Engineering", @"Computer Game Science", @"Computer Science", @"Computer Science and Engineering", @"Criminology, Law and Society", @"Dance", @"Developmental and Cell Biology", @"Drama", @"Earth System Science", @"East Asian Cultures", @"Ecology and Evolutionary Biology", @"Economics", @"Electrical Engineering", @"Engineering", @"English", @"Environmental Engineering", @"Environmental Science", @"European Studies", @"Film and Media Studies", @"French", @"Genetics", @"German Studies", @"Global Cultures", @"History", @"Human Biology", @"Informatics", @"International Studies", @"Japanese Language and Literature", @"Korean Literature and Culture", @"Literary Journalism", @"Materials Science Engineering", @"Mathematics", @"Mechanical Engineering", @"Microbiology and Immunology", @"Music", @"Music Theatre", @"Neurobiology", @"Nursing Science", @"Pharmaceutical Sciences", @"Philosophy", @"Physics", @"Political Science", @"Psychology", @"Psychology and Social Behavior", @"Public Health Policy", @"Public Health Sciences", @"Quantitative Economics", @"Religious Studies", @"Social Ecology", @"Social Policy and Public Service", @"Sociology", @"Software Engineering", @"Spanish", @"Undecided/Undeclared", @"Urban Studies", @"Women’s Studies"
+#define kMajorString @"Undecided/Undeclared", @"Aerospace Engineering", @"African American Studies", @"Anthropology", @"Art", @"Art History", @"Asian American Studies", @"Biochemistry and Molecular Biology", @"Biology/Education", @"Biological Sciences", @"Biomedical Engineering", @"Biomedical Engineering: Premedical", @"Business Administration", @"Business Economics", @"Business Information Management", @"Chemical Engineering", @"Chemistry", @"Chicano/Latino Studies", @"Chinese Studies", @"Civil Engineering", @"Classics", @"Cognitive Sciences", @"Comparative Literature", @"Computer Engineering", @"Computer Game Science", @"Computer Science", @"Computer Science and Engineering", @"Criminology, Law and Society", @"Dance", @"Developmental and Cell Biology", @"Drama", @"Earth System Science", @"East Asian Cultures", @"Ecology and Evolutionary Biology", @"Economics", @"Electrical Engineering", @"Engineering", @"English", @"Environmental Engineering", @"Environmental Science", @"European Studies", @"Film and Media Studies", @"French", @"Genetics", @"German Studies", @"Global Cultures", @"History", @"Human Biology", @"Informatics", @"International Studies", @"Japanese Language and Literature", @"Korean Literature and Culture", @"Literary Journalism", @"Materials Science Engineering", @"Mathematics", @"Mechanical Engineering", @"Microbiology and Immunology", @"Music", @"Music Theatre", @"Neurobiology", @"Nursing Science", @"Pharmaceutical Sciences", @"Philosophy", @"Physics", @"Political Science", @"Psychology", @"Psychology and Social Behavior", @"Public Health Policy", @"Public Health Sciences", @"Quantitative Economics", @"Religious Studies", @"Social Ecology", @"Social Policy and Public Service", @"Sociology", @"Software Engineering", @"Spanish", @"Urban Studies", @"Women’s Studies"
 #define kYearString @"2015", @"2016", @"2017", @"2018", @"2019", @"2020"
 
 @interface SJHRegistrationViewController ()
@@ -179,18 +179,13 @@
 #pragma mark - CoreData
 
 - (void)storeData {
-    NSManagedObjectContext *context = [(SJHAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    Recruit *recruit = [NSEntityDescription insertNewObjectForEntityForName:@"Recruit" inManagedObjectContext:context];
-    
+    SJHRecruit *recruit = [[SJHRecruit alloc] init];
     recruit.name = self.nameTextField.text;
     recruit.email = self.emailTextField.text;
     recruit.major = self.majorTextField.text;
     recruit.year = [NSNumber numberWithInteger:[self.yearTextField.text integerValue]];
     
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+    [[SJHCoreDataHandler dataHandler] saveRecruit:recruit];
 }
 
 @end

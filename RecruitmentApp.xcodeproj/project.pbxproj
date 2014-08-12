@@ -32,8 +32,10 @@
 		82E3A0491994A0C200E2C6F5 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0471994A0C200E2C6F5 /* image4.jpg */; };
 		82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */; };
 		82E3A04F1999ECA200E2C6F5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E3A04E1999ECA200E2C6F5 /* CoreData.framework */; };
-		82E3A0531999ED5F00E2C6F5 /* RecruitmentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */; };
-		82E3A0A3199A107B00E2C6F5 /* Recruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0A2199A107B00E2C6F5 /* Recruit.m */; };
+		82E3A0A7199AB6DD00E2C6F5 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */; };
+		82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */; };
+		82E3A0B0199ABF9A00E2C6F5 /* SJHRecruitCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */; };
+		82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AE199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld */; };
 		F0289BDE6B154E6992DEEBB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED7378FA5C472EA9A0A15B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -84,9 +86,13 @@
 		82E3A04B1999E99800E2C6F5 /* SJHApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHApiClient.h; path = Networking/SJHApiClient.h; sourceTree = "<group>"; };
 		82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHApiClient.m; path = Networking/SJHApiClient.m; sourceTree = "<group>"; };
 		82E3A04E1999ECA200E2C6F5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecruitmentApp.xcdatamodel; sourceTree = "<group>"; };
-		82E3A0A1199A107B00E2C6F5 /* Recruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recruit.h; path = Model/Recruit.h; sourceTree = "<group>"; };
-		82E3A0A2199A107B00E2C6F5 /* Recruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recruit.m; path = Model/Recruit.m; sourceTree = "<group>"; };
+		82E3A0A5199AB6DD00E2C6F5 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = Model/SJHRecruit.h; sourceTree = "<group>"; };
+		82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = Model/SJHRecruit.m; sourceTree = "<group>"; };
+		82E3A0A9199ABBB700E2C6F5 /* SJHCoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHCoreDataHandler.h; path = CoreData/SJHCoreDataHandler.h; sourceTree = "<group>"; };
+		82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHCoreDataHandler.m; path = CoreData/SJHCoreDataHandler.m; sourceTree = "<group>"; };
+		82E3A0AC199ABF9A00E2C6F5 /* SJHRecruitCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitCoreData.h; path = CoreData/SJHRecruitCoreData.h; sourceTree = "<group>"; };
+		82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitCoreData.m; path = CoreData/SJHRecruitCoreData.m; sourceTree = "<group>"; };
+		82E3A0AF199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SJHRecruitmentApp.xcdatamodel; sourceTree = "<group>"; };
 		AC84E950A6054CD182760900 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,10 +158,12 @@
 		820ED6BB1990B93B00413F6F /* RecruitmentApp */ = {
 			isa = PBXGroup;
 			children = (
-				82E3A0501999ECBE00E2C6F5 /* Models */,
 				82E3A04A1999E95300E2C6F5 /* Networking */,
-				82E3A03C19931F8E00E2C6F5 /* Views */,
+				82E3A0A8199ABB7E00E2C6F5 /* CoreData */,
 				820ED6EA1990C05400413F6F /* Controllers */,
+				82E3A03C19931F8E00E2C6F5 /* Views */,
+				82E3A0A4199AB42900E2C6F5 /* ViewModels */,
+				82E3A0501999ECBE00E2C6F5 /* Models */,
 				820ED6C41990B93B00413F6F /* SJHAppDelegate.h */,
 				820ED6C51990B93B00413F6F /* SJHAppDelegate.m */,
 				820ED6C71990B93B00413F6F /* Main.storyboard */,
@@ -243,11 +251,29 @@
 		82E3A0501999ECBE00E2C6F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */,
-				82E3A0A1199A107B00E2C6F5 /* Recruit.h */,
-				82E3A0A2199A107B00E2C6F5 /* Recruit.m */,
+				82E3A0A5199AB6DD00E2C6F5 /* SJHRecruit.h */,
+				82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		82E3A0A4199AB42900E2C6F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		82E3A0A8199ABB7E00E2C6F5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				82E3A0A9199ABBB700E2C6F5 /* SJHCoreDataHandler.h */,
+				82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */,
+				82E3A0AE199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld */,
+				82E3A0AC199ABF9A00E2C6F5 /* SJHRecruitCoreData.h */,
+				82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,15 +414,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruit.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
-				82E3A0531999ED5F00E2C6F5 /* RecruitmentApp.xcdatamodeld in Sources */,
 				820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */,
-				82E3A0A3199A107B00E2C6F5 /* Recruit.m in Sources */,
 				820ED6C21990B93B00413F6F /* main.m in Sources */,
 				82E3A04019931FDF00E2C6F5 /* SJHPopoverContentViewController.m in Sources */,
 				820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */,
+				82E3A0B0199ABF9A00E2C6F5 /* SJHRecruitCoreData.m in Sources */,
+				82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */,
 				820ED6ED1990C08000413F6F /* SJHMainViewController.m in Sources */,
+				82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */,
 				82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,14 +648,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */ = {
+		82E3A0AE199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */,
+				82E3A0AF199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodel */,
 			);
-			currentVersion = 82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */;
-			name = RecruitmentApp.xcdatamodeld;
-			path = Model/RecruitmentApp.xcdatamodeld;
+			currentVersion = 82E3A0AF199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodel */;
+			name = SJHRecruitmentApp.xcdatamodeld;
+			path = CoreData/SJHRecruitmentApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

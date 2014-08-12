@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
+@class SJHRecruit;
 
-@interface Recruit : NSManagedObject
+@interface SJHRecruitCoreData : NSManagedObject
 
 @property (nonatomic, retain) NSString * key;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSString * major;
+
+- (SJHRecruit *)JSONRecruit;
 
 @end
