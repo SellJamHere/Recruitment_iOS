@@ -1,5 +1,5 @@
 //
-//  Recruit.m
+//  SJHRecruit.m
 //  RecruitmentApp
 //
 //  Created by James Heller on 8/12/14.
@@ -12,13 +12,14 @@
 
 @implementation SJHRecruit
 
-@dynamic key;
-@dynamic name;
 @dynamic email;
-@dynamic year;
+@dynamic key;
 @dynamic major;
+@dynamic name;
+@dynamic year;
+@dynamic uploaded;
 
-- (SJHRecruitJSONModel *)JSONRecruit {
+- (SJHRecruitJSONModel *)JSONrecruit {
     return [[SJHRecruitJSONModel alloc] initWithRecruit:self];
 }
 

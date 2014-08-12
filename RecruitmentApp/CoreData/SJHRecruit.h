@@ -1,5 +1,5 @@
 //
-//  Recruit.h
+//  SJHRecruit.h
 //  RecruitmentApp
 //
 //  Created by James Heller on 8/12/14.
@@ -12,12 +12,13 @@
 
 @interface SJHRecruit : NSManagedObject
 
-@property (nonatomic, retain) NSString * key;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSString * key;
 @property (nonatomic, retain) NSString * major;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSNumber * uploaded;
 
-- (SJHRecruitJSONModel *)JSONRecruit;
+- (SJHRecruitJSONModel *)JSONrecruit;
 
 @end
