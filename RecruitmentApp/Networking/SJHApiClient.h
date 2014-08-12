@@ -8,8 +8,14 @@
 
 #import "AFHTTPSessionManager.h"
 
+@class SJHRecruitJSONModel;
+
 @interface SJHApiClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
+
+- (NSURLSessionTask *)recruitsGETSuccess:(void ( ^ ) ( NSURLSessionDataTask *task , id responseObject ))success failure:(void ( ^ ) ( NSURLSessionDataTask *task , NSError *error ))failure;
+
+- (NSURLSessionTask *)recruitPOST:(SJHRecruitJSONModel *)recruit success:(void ( ^ ) ( NSURLSessionDataTask *task , id responseObject ))success failure:(void ( ^ ) ( NSURLSessionDataTask *task , NSError *error ))failure;
 
 @end
