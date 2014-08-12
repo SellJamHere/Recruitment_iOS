@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class SJHRecruit;
+@class SJHRecruitJSONModel;
 
-@interface SJHRecruitCoreData : NSManagedObject
+@interface SJHRecruit : NSManagedObject
 
 @property (nonatomic, retain) NSString * key;
 @property (nonatomic, retain) NSString * name;
@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSString * major;
 
-- (SJHRecruit *)JSONRecruit;
+- (SJHRecruitJSONModel *)JSONRecruit;
 
 @end

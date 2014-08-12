@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 UCISailingTeam. All rights reserved.
 //
 
-#import "SJHRecruitCoreData.h"
-
 #import "SJHRecruit.h"
 
-@implementation SJHRecruitCoreData
+#import "SJHRecruitJSONModel.h"
+
+@implementation SJHRecruit
 
 @dynamic key;
 @dynamic name;
@@ -18,8 +18,8 @@
 @dynamic year;
 @dynamic major;
 
-- (SJHRecruit *)JSONRecruit {
-    return [[SJHRecruit alloc] initWithRecruit:self];
+- (SJHRecruitJSONModel *)JSONRecruit {
+    return [[SJHRecruitJSONModel alloc] initWithRecruit:self];
 }
 
 @end

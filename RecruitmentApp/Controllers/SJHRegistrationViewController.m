@@ -179,13 +179,13 @@
 #pragma mark - CoreData
 
 - (void)storeData {
-    SJHRecruit *recruit = [[SJHRecruit alloc] init];
+    SJHRecruit *recruit = [[SJHCoreDataHandler dataHandler] newRecruit];
     recruit.name = self.nameTextField.text;
     recruit.email = self.emailTextField.text;
-    recruit.major = self.majorTextField.text;
     recruit.year = [NSNumber numberWithInteger:[self.yearTextField.text integerValue]];
+    recruit.major = self.majorTextField.text;
     
-    [[SJHCoreDataHandler dataHandler] saveRecruit:recruit];
+    [[SJHCoreDataHandler dataHandler] saveContext];
 }
 
 @end

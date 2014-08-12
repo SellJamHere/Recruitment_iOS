@@ -32,9 +32,9 @@
 		82E3A0491994A0C200E2C6F5 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0471994A0C200E2C6F5 /* image4.jpg */; };
 		82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */; };
 		82E3A04F1999ECA200E2C6F5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E3A04E1999ECA200E2C6F5 /* CoreData.framework */; };
-		82E3A0A7199AB6DD00E2C6F5 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */; };
+		82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0A6199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m */; };
 		82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */; };
-		82E3A0B0199ABF9A00E2C6F5 /* SJHRecruitCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */; };
+		82E3A0B0199ABF9A00E2C6F5 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AD199ABF9A00E2C6F5 /* SJHRecruit.m */; };
 		82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0AE199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld */; };
 		F0289BDE6B154E6992DEEBB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED7378FA5C472EA9A0A15B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -86,12 +86,12 @@
 		82E3A04B1999E99800E2C6F5 /* SJHApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHApiClient.h; path = Networking/SJHApiClient.h; sourceTree = "<group>"; };
 		82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHApiClient.m; path = Networking/SJHApiClient.m; sourceTree = "<group>"; };
 		82E3A04E1999ECA200E2C6F5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		82E3A0A5199AB6DD00E2C6F5 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = Model/SJHRecruit.h; sourceTree = "<group>"; };
-		82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = Model/SJHRecruit.m; sourceTree = "<group>"; };
+		82E3A0A5199AB6DD00E2C6F5 /* SJHRecruitJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitJSONModel.h; path = Model/SJHRecruitJSONModel.h; sourceTree = "<group>"; };
+		82E3A0A6199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitJSONModel.m; path = Model/SJHRecruitJSONModel.m; sourceTree = "<group>"; };
 		82E3A0A9199ABBB700E2C6F5 /* SJHCoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHCoreDataHandler.h; path = CoreData/SJHCoreDataHandler.h; sourceTree = "<group>"; };
 		82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHCoreDataHandler.m; path = CoreData/SJHCoreDataHandler.m; sourceTree = "<group>"; };
-		82E3A0AC199ABF9A00E2C6F5 /* SJHRecruitCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitCoreData.h; path = CoreData/SJHRecruitCoreData.h; sourceTree = "<group>"; };
-		82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitCoreData.m; path = CoreData/SJHRecruitCoreData.m; sourceTree = "<group>"; };
+		82E3A0AC199ABF9A00E2C6F5 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
+		82E3A0AD199ABF9A00E2C6F5 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
 		82E3A0AF199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SJHRecruitmentApp.xcdatamodel; sourceTree = "<group>"; };
 		AC84E950A6054CD182760900 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,8 +251,8 @@
 		82E3A0501999ECBE00E2C6F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				82E3A0A5199AB6DD00E2C6F5 /* SJHRecruit.h */,
-				82E3A0A6199AB6DD00E2C6F5 /* SJHRecruit.m */,
+				82E3A0A5199AB6DD00E2C6F5 /* SJHRecruitJSONModel.h */,
+				82E3A0A6199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 				82E3A0A9199ABBB700E2C6F5 /* SJHCoreDataHandler.h */,
 				82E3A0AA199ABBB700E2C6F5 /* SJHCoreDataHandler.m */,
 				82E3A0AE199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld */,
-				82E3A0AC199ABF9A00E2C6F5 /* SJHRecruitCoreData.h */,
-				82E3A0AD199ABF9A00E2C6F5 /* SJHRecruitCoreData.m */,
+				82E3A0AC199ABF9A00E2C6F5 /* SJHRecruit.h */,
+				82E3A0AD199ABF9A00E2C6F5 /* SJHRecruit.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -414,14 +414,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruit.m in Sources */,
+				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
 				820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */,
 				820ED6C21990B93B00413F6F /* main.m in Sources */,
 				82E3A04019931FDF00E2C6F5 /* SJHPopoverContentViewController.m in Sources */,
 				820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */,
-				82E3A0B0199ABF9A00E2C6F5 /* SJHRecruitCoreData.m in Sources */,
+				82E3A0B0199ABF9A00E2C6F5 /* SJHRecruit.m in Sources */,
 				82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */,
 				820ED6ED1990C08000413F6F /* SJHMainViewController.m in Sources */,
 				82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */,

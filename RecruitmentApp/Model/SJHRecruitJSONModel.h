@@ -8,9 +8,9 @@
 
 #import "JSONModel.h"
 
-@class SJHRecruitCoreData;
+@class SJHRecruit;
 
-@interface SJHRecruit : JSONModel
+@interface SJHRecruitJSONModel : JSONModel
 
 @property (strong, nonatomic) NSString <Optional> *key;
 @property (strong, nonatomic) NSString *name;
@@ -18,6 +18,6 @@
 @property (strong, nonatomic) NSNumber *year;
 @property (strong, nonatomic) NSString *major;
 
-- (instancetype)initWithRecruit:(SJHRecruitCoreData *)recruit;
+- (instancetype)initWithRecruit:(SJHRecruit *)recruit;
 
 @end

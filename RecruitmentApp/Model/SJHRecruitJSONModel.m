@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 UCISailingTeam. All rights reserved.
 //
 
+#import "SJHRecruitJSONModel.h"
+
 #import "SJHRecruit.h"
 
-#import "SJHRecruitCoreData.h"
-
-@implementation SJHRecruit
+@implementation SJHRecruitJSONModel
 
 - (instancetype)init {
     self = [self initWithRecruit:nil];
@@ -20,7 +20,7 @@
     return self;
 }
 
-- (instancetype)initWithRecruit:(SJHRecruitCoreData *)recruit {
+- (instancetype)initWithRecruit:(SJHRecruit *)recruit {
     self = [super init];
     if (self) {
         if (recruit) {

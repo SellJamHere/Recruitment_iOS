@@ -8,8 +8,8 @@
 
 #import "SJHCoreDataHandler.h"
 
-#import "SJHRecruitCoreData.h"
 #import "SJHRecruit.h"
+#import "SJHRecruitJSONModel.h"
 
 @implementation SJHCoreDataHandler
 
@@ -29,10 +29,14 @@
 
 #pragma mark - Data Access
 
+- (SJHRecruit *)newRecruit {
+    return [NSEntityDescription insertNewObjectForEntityForName:@"SJHRecruit" inManagedObjectContext:[self managedObjectContext]];
+}
+
 - (NSArray *)getRecruits {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruitCoreData"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSError *error;
@@ -42,28 +46,22 @@
         return nil;
     }
     
-    NSMutableArray *recruitArray = [[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]];
-    for (SJHRecruitCoreData *recruit in fetchedObjects) {
-        [recruitArray addObject:[[SJHRecruit alloc] initWithRecruit:recruit]];
-    }
-    
-    return [recruitArray copy];
+    return fetchedObjects;
 }
 
-- (void)saveRecruit:(SJHRecruit *)recruit {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    SJHRecruitCoreData *managedRecruit = [NSEntityDescription insertNewObjectForEntityForName:@"SJHRecruitCoreData" inManagedObjectContext:context];
-    
-    managedRecruit.name = recruit.name;
-    managedRecruit.email = recruit.email;
-    managedRecruit.major = recruit.major;
-    managedRecruit.year = recruit.year;
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Couldn't save recruit: %@", error);
-    }
-}
+//- (void)saveRecruit:(SJHRecruit *)recruit {
+//    
+//    
+//    managedRecruit.name = recruit.name;
+//    managedRecruit.email = recruit.email;
+//    managedRecruit.major = recruit.major;
+//    managedRecruit.year = recruit.year;
+//    
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Couldn't save recruit: %@", error);
+//    }
+//}
 
 #pragma mark - Core Data stack
 
