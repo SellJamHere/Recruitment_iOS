@@ -34,8 +34,8 @@
     
     self.menuViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"SJHRegistrationViewController"];
     
-    self.liveBlur = NO;
-    self.blurRadius = 5.0;
+//    self.liveBlur = NO;
+//    self.blurRadius = 5.0;
     
 //    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(presentMenuViewController) userInfo:nil repeats:NO];
 }

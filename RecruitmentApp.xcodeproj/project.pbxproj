@@ -14,7 +14,6 @@
 		820ED6C21990B93B00413F6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6C11990B93B00413F6F /* main.m */; };
 		820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6C51990B93B00413F6F /* SJHAppDelegate.m */; };
 		820ED6C91990B93B00413F6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820ED6C71990B93B00413F6F /* Main.storyboard */; };
-		820ED6CC1990B93B00413F6F /* SJHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6CB1990B93B00413F6F /* SJHViewController.m */; };
 		820ED6CE1990B93B00413F6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820ED6CD1990B93B00413F6F /* Images.xcassets */; };
 		820ED6D51990B93C00413F6F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820ED6D41990B93C00413F6F /* XCTest.framework */; };
 		820ED6D61990B93C00413F6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820ED6B51990B93B00413F6F /* Foundation.framework */; };
@@ -31,6 +30,10 @@
 		82E3A0451994A04100E2C6F5 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0441994A04100E2C6F5 /* image2.jpg */; };
 		82E3A0481994A0C200E2C6F5 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0461994A0C200E2C6F5 /* image3.jpg */; };
 		82E3A0491994A0C200E2C6F5 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0471994A0C200E2C6F5 /* image4.jpg */; };
+		82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */; };
+		82E3A04F1999ECA200E2C6F5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E3A04E1999ECA200E2C6F5 /* CoreData.framework */; };
+		82E3A0531999ED5F00E2C6F5 /* RecruitmentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */; };
+		82E3A0A3199A107B00E2C6F5 /* Recruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A0A2199A107B00E2C6F5 /* Recruit.m */; };
 		F0289BDE6B154E6992DEEBB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED7378FA5C472EA9A0A15B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +60,6 @@
 		820ED6C41990B93B00413F6F /* SJHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJHAppDelegate.h; sourceTree = "<group>"; };
 		820ED6C51990B93B00413F6F /* SJHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJHAppDelegate.m; sourceTree = "<group>"; };
 		820ED6C81990B93B00413F6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		820ED6CA1990B93B00413F6F /* SJHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJHViewController.h; sourceTree = "<group>"; };
-		820ED6CB1990B93B00413F6F /* SJHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJHViewController.m; sourceTree = "<group>"; };
 		820ED6CD1990B93B00413F6F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		820ED6D31990B93C00413F6F /* RecruitmentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecruitmentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		820ED6D41990B93C00413F6F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,6 +81,12 @@
 		82E3A0441994A04100E2C6F5 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image2.jpg; path = Resources/image2.jpg; sourceTree = "<group>"; };
 		82E3A0461994A0C200E2C6F5 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image3.jpg; path = Resources/image3.jpg; sourceTree = "<group>"; };
 		82E3A0471994A0C200E2C6F5 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image4.jpg; path = Resources/image4.jpg; sourceTree = "<group>"; };
+		82E3A04B1999E99800E2C6F5 /* SJHApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHApiClient.h; path = Networking/SJHApiClient.h; sourceTree = "<group>"; };
+		82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHApiClient.m; path = Networking/SJHApiClient.m; sourceTree = "<group>"; };
+		82E3A04E1999ECA200E2C6F5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecruitmentApp.xcdatamodel; sourceTree = "<group>"; };
+		82E3A0A1199A107B00E2C6F5 /* Recruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recruit.h; path = Model/Recruit.h; sourceTree = "<group>"; };
+		82E3A0A2199A107B00E2C6F5 /* Recruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recruit.m; path = Model/Recruit.m; sourceTree = "<group>"; };
 		AC84E950A6054CD182760900 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E3A04F1999ECA200E2C6F5 /* CoreData.framework in Frameworks */,
 				820ED6B81990B93B00413F6F /* CoreGraphics.framework in Frameworks */,
 				820ED6BA1990B93B00413F6F /* UIKit.framework in Frameworks */,
 				820ED6B61990B93B00413F6F /* Foundation.framework in Frameworks */,
@@ -131,6 +139,7 @@
 		820ED6B41990B93B00413F6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82E3A04E1999ECA200E2C6F5 /* CoreData.framework */,
 				820ED6B51990B93B00413F6F /* Foundation.framework */,
 				820ED6B71990B93B00413F6F /* CoreGraphics.framework */,
 				820ED6B91990B93B00413F6F /* UIKit.framework */,
@@ -143,13 +152,13 @@
 		820ED6BB1990B93B00413F6F /* RecruitmentApp */ = {
 			isa = PBXGroup;
 			children = (
+				82E3A0501999ECBE00E2C6F5 /* Models */,
+				82E3A04A1999E95300E2C6F5 /* Networking */,
 				82E3A03C19931F8E00E2C6F5 /* Views */,
 				820ED6EA1990C05400413F6F /* Controllers */,
 				820ED6C41990B93B00413F6F /* SJHAppDelegate.h */,
 				820ED6C51990B93B00413F6F /* SJHAppDelegate.m */,
 				820ED6C71990B93B00413F6F /* Main.storyboard */,
-				820ED6CA1990B93B00413F6F /* SJHViewController.h */,
-				820ED6CB1990B93B00413F6F /* SJHViewController.m */,
 				820ED6CD1990B93B00413F6F /* Images.xcassets */,
 				820ED6EE1990C13300413F6F /* Resources */,
 				820ED6BC1990B93B00413F6F /* Supporting Files */,
@@ -220,6 +229,25 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		82E3A04A1999E95300E2C6F5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				82E3A04B1999E99800E2C6F5 /* SJHApiClient.h */,
+				82E3A04C1999E99800E2C6F5 /* SJHApiClient.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		82E3A0501999ECBE00E2C6F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */,
+				82E3A0A1199A107B00E2C6F5 /* Recruit.h */,
+				82E3A0A2199A107B00E2C6F5 /* Recruit.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,12 +390,14 @@
 			files = (
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
+				82E3A0531999ED5F00E2C6F5 /* RecruitmentApp.xcdatamodeld in Sources */,
 				820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */,
+				82E3A0A3199A107B00E2C6F5 /* Recruit.m in Sources */,
 				820ED6C21990B93B00413F6F /* main.m in Sources */,
 				82E3A04019931FDF00E2C6F5 /* SJHPopoverContentViewController.m in Sources */,
 				820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */,
-				820ED6CC1990B93B00413F6F /* SJHViewController.m in Sources */,
 				820ED6ED1990C08000413F6F /* SJHMainViewController.m in Sources */,
+				82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +618,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		82E3A0511999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */,
+			);
+			currentVersion = 82E3A0521999ED5E00E2C6F5 /* RecruitmentApp.xcdatamodel */;
+			name = RecruitmentApp.xcdatamodeld;
+			path = Model/RecruitmentApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 820ED6AA1990B93B00413F6F /* Project object */;
 }
