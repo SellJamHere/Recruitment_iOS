@@ -20,7 +20,6 @@
 
 - (SJHRecruit *)newRecruit;
 - (NSArray *)getRecruits;    //Returns SJHRecruit array
-//- (void)saveRecruit:(SJHRecruit *)recruit;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -49,20 +49,6 @@
     return fetchedObjects;
 }
 
-//- (void)saveRecruit:(SJHRecruit *)recruit {
-//    
-//    
-//    managedRecruit.name = recruit.name;
-//    managedRecruit.email = recruit.email;
-//    managedRecruit.major = recruit.major;
-//    managedRecruit.year = recruit.year;
-//    
-//    NSError *error;
-//    if (![context save:&error]) {
-//        NSLog(@"Couldn't save recruit: %@", error);
-//    }
-//}
-
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
@@ -151,7 +137,6 @@
         }
     }
 }
-
 
 #pragma mark - Application's Documents directory
 
