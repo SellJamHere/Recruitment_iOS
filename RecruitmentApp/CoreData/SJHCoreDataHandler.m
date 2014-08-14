@@ -8,6 +8,8 @@
 
 #import "SJHCoreDataHandler.h"
 
+#import "SJHApiClient.h"
+
 #import "SJHRecruit.h"
 #import "SJHRecruitJSONModel.h"
 
@@ -22,6 +24,28 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
+        [sharedInstance managedObjectContext];
+        
+        //Set Reachability
+        [[[SJHApiClient sharedClient] reachabilityManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                    
+                    //Upload stored recruits
+                    [sharedInstance uploadRecruits];
+                    
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                    
+                    
+
+                    break;
+                default:
+                    break;
+            }
+        }];
+        [[[SJHApiClient sharedClient] reachabilityManager] startMonitoring];
     });
     
     return sharedInstance;
@@ -39,6 +63,63 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruits: %@", error);
+        return nil;
+    }
+    
+    return fetchedObjects;
+}
+
+- (BOOL)recruitAlreadyStoredForEmail:(NSString *)email {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"email LIKE \"%@\"", email]];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruit: %@", error);
+        return nil;
+    }
+    
+    return [fetchedObjects count] > 0;
+}
+
+- (NSArray *)getRecruitsNotUploaded {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uploaded = NO"];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruits: %@", error);
+        return nil;
+    }
+    
+    return fetchedObjects;
+}
+
+- (NSArray *)getRecruitsUploaded {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uploaded = YES"];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
     NSError *error;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
@@ -144,6 +225,43 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Reachability
+
+- (void)uploadRecruits {
+    NSArray *recruits = [self getRecruitsNotUploaded];
+    if ([recruits count] > 0) {
+        [self uploadRecruitsRecursively:recruits index:0 retry:NO];
+    }
+}
+
+//Retry is used to allow one retry in the event of the failure
+- (void)uploadRecruitsRecursively:(NSArray *)recruits index:(NSInteger)index retry:(BOOL)retry {
+    //base case
+    if (index == [recruits count]) {
+        return;
+    }
+    
+    SJHRecruit *recruit = recruits[index];
+    //upload recruit at index
+    [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
+        recruit.uploaded = [NSNumber numberWithBool:YES];
+        [self saveContext];
+        [self uploadRecruitsRecursively:recruits index:index + 1 retry:NO];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        if (response.statusCode == 499) {
+            recruit.uploaded = [NSNumber numberWithBool:YES];
+            [self saveContext];
+        }
+        else {
+            if (!retry) {
+                [self uploadRecruitsRecursively:recruits index:index retry:YES];
+            }
+        }
+    }];
 }
 
 @end

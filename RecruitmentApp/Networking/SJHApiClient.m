@@ -8,11 +8,13 @@
 
 #import "SJHApiClient.h"
 
+#import "SJHRecruit.h"
 #import "SJHRecruitJSONModel.h"
 
 @implementation SJHApiClient
 
 static NSString * const kBaseUrlString = @"http://uci-sailing-recruitment.appspot.com";
+//static NSString * const kBaseUrlString = @"http://localhost:8080";
 
 static NSString * const kRecruitUrlString = @"recruit";
 static NSString * const kAllRecruitsUrlString = @"recruits";
@@ -32,19 +34,24 @@ static NSString * const kAllRecruitsUrlString = @"recruits";
     self = [super initWithBaseURL:url];
     if (self) {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-        [self.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-            switch (status) {
-                case AFNetworkReachabilityStatusReachableViaWiFi:
-                case AFNetworkReachabilityStatusReachableViaWWAN:
-                    //Upload stored recruits
-                    break;
-                case AFNetworkReachabilityStatusNotReachable:
-                    
-                    break;
-                default:
-                    break;
-            }
-        }];
+        
+        //Set Reachability in core data handler
+//        [self.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//            switch (status) {
+//                case AFNetworkReachabilityStatusReachableViaWiFi:
+//                case AFNetworkReachabilityStatusReachableViaWWAN:
+//                    //Upload stored recruits
+//                    
+//                    
+//                    break;
+//                case AFNetworkReachabilityStatusNotReachable:
+//                    
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }];
+//        [self.reachabilityManager startMonitoring];
     }
     return self;
 }
@@ -53,8 +60,8 @@ static NSString * const kAllRecruitsUrlString = @"recruits";
     return [self GET:kAllRecruitsUrlString parameters:nil success:success failure:failure];
 }
 
-- (NSURLSessionTask *)recruitPOST:(SJHRecruitJSONModel *)recruit success:(void ( ^ ) ( NSURLSessionDataTask *task , id responseObject ))success failure:(void ( ^ ) ( NSURLSessionDataTask *task , NSError *error ))failure {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithDictionary:[recruit toDictionary]];
+- (NSURLSessionTask *)recruitPOST:(SJHRecruit *)recruit success:(void ( ^ ) ( NSURLSessionDataTask *task , id responseObject ))success failure:(void ( ^ ) ( NSURLSessionDataTask *task , NSError *error ))failure {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithDictionary:[[recruit JSONrecruit] toDictionary]];
     return [self POST:kRecruitUrlString parameters:parameters success:success failure:failure];
 }
 

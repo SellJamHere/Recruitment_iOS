@@ -12,11 +12,11 @@
                         <viewControllerLayoutGuide type="top" id="Ngr-fr-8vM"/>
                         <viewControllerLayoutGuide type="bottom" id="wGU-oZ-5XO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lh2-ch-d5F">
+                    <view key="view" contentMode="scaleToFill" id="lh2-ch-d5F" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-08-8RY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-08-8RY" customClass="UIControl">
                                 <rect key="frame" x="300" y="150" width="424" height="468"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -112,6 +112,9 @@
                                     <constraint firstAttribute="centerX" secondItem="Ks0-NJ-IPW" secondAttribute="centerX" id="Zm8-ad-dDc"/>
                                     <constraint firstItem="srR-Ey-Ij9" firstAttribute="top" secondItem="3c0-08-8RY" secondAttribute="top" constant="70" id="ZuS-OX-kwK"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="backgroundTouched:" destination="t2P-Pa-M2S" eventType="touchUpInside" id="7Si-b3-6If"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -122,6 +125,9 @@
                             <constraint firstItem="3c0-08-8RY" firstAttribute="leading" secondItem="lh2-ch-d5F" secondAttribute="leading" constant="300" id="zhf-dN-zzt"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <action selector="backgroundTouched:" destination="t2P-Pa-M2S" eventType="touchUpInside" id="Kbt-Id-hPW"/>
+                        </connections>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

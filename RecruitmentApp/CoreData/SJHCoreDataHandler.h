@@ -18,8 +18,11 @@
 
 + (instancetype)dataHandler;
 
-- (SJHRecruit *)newRecruit;
-- (NSArray *)getRecruits;    //Returns SJHRecruit array
+- (SJHRecruit *)newRecruit;                                 //Returns fresh managed recruit
+- (BOOL)recruitAlreadyStoredForEmail:(NSString *)email;     //Checks if recruit has been stored locally
+- (NSArray *)getRecruits;                                   //Returns SJHRecruit array
+- (NSArray *)getRecruitsNotUploaded;                        //Returns SJHRecruit array
+- (NSArray *)getRecruitsUploaded;                           //Returns SJHRecruit array
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

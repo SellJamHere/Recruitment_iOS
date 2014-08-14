@@ -14,6 +14,8 @@
 
 #import "SJHPopoverContentViewController.h"
 
+#import "SJHApiClient.h"
+
 #import "SJHCoreDataHandler.h"
 #import "SJHRecruit.h"
 
@@ -88,13 +90,36 @@
 
 - (IBAction)comeSailingButtonTouched:(id)sender {
     //save data
-    [self storeData];
     
-    
-    //hide registration form
-    [self.frostedViewController hideMenuViewControllerWithCompletionHandler:^{
-        [self resetRegistrationForm];
-    }];
+    if (![[SJHCoreDataHandler dataHandler] recruitAlreadyStoredForEmail:self.emailTextField.text]) {
+        SJHRecruit *recruit = [[SJHCoreDataHandler dataHandler] newRecruit];
+        [self storeRecruit:recruit];
+        
+        //try uploading recruit
+        [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
+            recruit.uploaded = [NSNumber numberWithBool:YES];
+            [[SJHCoreDataHandler dataHandler] saveContext];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+            if (response.statusCode == 499) {
+                recruit.uploaded = [NSNumber numberWithBool:YES];
+                [[SJHCoreDataHandler dataHandler] saveContext];
+            }
+        }];
+        
+        //hide registration form
+        [self.frostedViewController hideMenuViewControllerWithCompletionHandler:^{
+            [self resetRegistrationForm];
+        }];
+    }
+    else {
+        //Report that user has been registered already
+    }
+}
+
+- (IBAction)backgroundTouched:(id)sender {
+    [self.nameTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
 }
 
 - (void)resetRegistrationForm {
@@ -131,6 +156,9 @@
     if (textField == self.nameTextField || textField == self.emailTextField) {
         return YES;
     }
+    
+    [self.nameTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
     
     if (textField == self.yearTextField) {
         //show year popup
@@ -178,8 +206,7 @@
 
 #pragma mark - CoreData
 
-- (void)storeData {
-    SJHRecruit *recruit = [[SJHCoreDataHandler dataHandler] newRecruit];
+- (void)storeRecruit:(SJHRecruit *)recruit {
     recruit.name = self.nameTextField.text;
     recruit.email = self.emailTextField.text;
     recruit.year = [NSNumber numberWithInteger:[self.yearTextField.text integerValue]];
