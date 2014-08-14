@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class SJHPopoverContentViewController;
+@class SJHPopoverContentViewController, SJHRegistrationTextField;
 
 @protocol SJHPopoverDismissDelegate <NSObject>
 
@@ -18,8 +18,8 @@
 
 @interface SJHRegistrationViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, SJHPopoverDismissDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet SJHRegistrationTextField *nameTextField;
+@property (weak, nonatomic) IBOutlet SJHRegistrationTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UITextField *majorTextField;
 

@@ -26,6 +26,8 @@
 		820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F51991F64200413F6F /* SJHImageSlideShowViewController.m */; };
 		820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */; };
 		82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270111199ADDC3002AC4F4 /* SJHRecruit.m */; };
+		82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */; };
+		82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */; };
 		82E3A04019931FDF00E2C6F5 /* SJHPopoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E3A03E19931FDF00E2C6F5 /* SJHPopoverContentViewController.m */; };
 		82E3A043199492D000E2C6F5 /* image0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A042199492D000E2C6F5 /* image0.jpg */; };
 		82E3A0451994A04100E2C6F5 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E3A0441994A04100E2C6F5 /* image2.jpg */; };
@@ -79,6 +81,10 @@
 		820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+AutorotateRules.m"; path = "Controllers/UIViewController+AutorotateRules.m"; sourceTree = "<group>"; };
 		82270110199ADDC3002AC4F4 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
 		82270111199ADDC3002AC4F4 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
+		82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationHelper.h; path = Helpers/SJHRegistrationHelper.h; sourceTree = "<group>"; };
+		82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRegistrationHelper.m; path = Helpers/SJHRegistrationHelper.m; sourceTree = "<group>"; };
+		82270117199CB4DE002AC4F4 /* SJHRegistrationTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationTextField.h; path = Views/SJHRegistrationTextField.h; sourceTree = "<group>"; };
+		82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRegistrationTextField.m; path = Views/SJHRegistrationTextField.m; sourceTree = "<group>"; };
 		82E3A03D19931FDF00E2C6F5 /* SJHPopoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHPopoverContentViewController.h; path = Controllers/SJHPopoverContentViewController.h; sourceTree = "<group>"; };
 		82E3A03E19931FDF00E2C6F5 /* SJHPopoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHPopoverContentViewController.m; path = Controllers/SJHPopoverContentViewController.m; sourceTree = "<group>"; };
 		82E3A042199492D000E2C6F5 /* image0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image0.jpg; path = Resources/image0.jpg; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 			children = (
 				82E3A04A1999E95300E2C6F5 /* Networking */,
 				82E3A0A8199ABB7E00E2C6F5 /* CoreData */,
+				82270113199CB449002AC4F4 /* Helpers */,
 				820ED6EA1990C05400413F6F /* Controllers */,
 				82E3A03C19931F8E00E2C6F5 /* Views */,
 				82E3A0A4199AB42900E2C6F5 /* ViewModels */,
@@ -232,9 +239,20 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		82270113199CB449002AC4F4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */,
+				82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		82E3A03C19931F8E00E2C6F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82270117199CB4DE002AC4F4 /* SJHRegistrationTextField.h */,
+				82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -417,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */,
 				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
@@ -427,6 +446,7 @@
 				820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */,
 				82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */,
 				820ED6ED1990C08000413F6F /* SJHMainViewController.m in Sources */,
+				82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */,
 				82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */,
 				82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */,
 			);

@@ -12,6 +12,11 @@
 #import "UIViewController+REFrostedViewController.h"
 #import "REFrostedViewController.h"
 
+#import "MBProgressHUD.h"
+
+#import "SJHRegistrationHelper.h"
+#import "SJHRegistrationTextField.h"
+
 #import "SJHPopoverContentViewController.h"
 
 #import "SJHApiClient.h"
@@ -27,6 +32,8 @@
 @property (strong, nonatomic) UIPopoverController *popover;
 @property (strong, nonatomic) NSArray *majorArray;
 @property (strong, nonatomic) NSArray *yearArray;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -89,32 +96,73 @@
 */
 
 - (IBAction)comeSailingButtonTouched:(id)sender {
-    //save data
-    
-    if (![[SJHCoreDataHandler dataHandler] recruitAlreadyStoredForEmail:self.emailTextField.text]) {
-        SJHRecruit *recruit = [[SJHCoreDataHandler dataHandler] newRecruit];
-        [self storeRecruit:recruit];
-        
-        //try uploading recruit
-        [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
-            recruit.uploaded = [NSNumber numberWithBool:YES];
-            [[SJHCoreDataHandler dataHandler] saveContext];
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-            if (response.statusCode == 499) {
-                recruit.uploaded = [NSNumber numberWithBool:YES];
-                [[SJHCoreDataHandler dataHandler] saveContext];
+    //validate registration input
+    if ([self checkFields]) {
+        //Check if recruit has already been stored
+        if (![[SJHCoreDataHandler dataHandler] recruitAlreadyStoredForEmail:self.emailTextField.text]) {
+            self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            self.hud.labelText = @"Saving";
+            
+            //save data
+            SJHRecruit *recruit = [[SJHCoreDataHandler dataHandler] newRecruit];
+            [self storeRecruit:recruit];
+            
+            //Check if network is active
+            if ([[[SJHApiClient sharedClient] reachabilityManager] isReachable]) {
+                //try uploading recruit
+                [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
+                    recruit.uploaded = [NSNumber numberWithBool:YES];
+                    [[SJHCoreDataHandler dataHandler] saveContext];
+                    [self.hud hide:YES];
+                    [self hideRegistrationView];
+                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+                    if (response.statusCode == 499) {
+                        //recruit already exists on the server
+                        recruit.uploaded = [NSNumber numberWithBool:YES];
+                        [[SJHCoreDataHandler dataHandler] saveContext];
+                    }
+                    [self.hud hide:YES];
+                    [self hideRegistrationView];
+                }];
             }
-        }];
-        
-        //hide registration form
-        [self.frostedViewController hideMenuViewControllerWithCompletionHandler:^{
-            [self resetRegistrationForm];
-        }];
+            else {
+                [self.hud hide:YES afterDelay:0.5];
+                [self hideRegistrationView];
+            }
+        }
+        else {
+            //Report that user has been registered already
+            [self hideRegistrationView];
+        }
     }
-    else {
-        //Report that user has been registered already
+}
+
+- (BOOL)checkFields {
+    BOOL fieldsAreValid = YES;
+    if ([self.nameTextField.text length] <= 0) {
+        [self.nameTextField wiggle];
+        fieldsAreValid = NO;
     }
+    
+    if ([self.emailTextField.text length] <= 0) {
+        [self.emailTextField wiggle];
+        fieldsAreValid = NO;
+    }
+    
+    if (![SJHRegistrationHelper isValidEmailAddress:self.emailTextField.text]) {
+        [self.emailTextField wiggle];
+        fieldsAreValid = NO;
+    }
+    
+    return fieldsAreValid;
+}
+
+- (void)hideRegistrationView {
+    //hide registration form
+    [self.frostedViewController hideMenuViewControllerWithCompletionHandler:^{
+        [self resetRegistrationForm];
+    }];
 }
 
 - (IBAction)backgroundTouched:(id)sender {

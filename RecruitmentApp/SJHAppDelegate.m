@@ -27,14 +27,14 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     
-    NSArray *recruits = [[SJHCoreDataHandler dataHandler] getRecruitsNotUploaded];
-    for (SJHRecruit *recruit in recruits) {
-        NSLog(@"Name: %@", recruit.name);
-        NSLog(@"Email: %@", recruit.email);
-        NSLog(@"Major: %@", recruit.major);
-        NSLog(@"Year: %@", recruit.year);
-        NSLog(@"Uploaded: %@", recruit.uploaded);
-    }
+//    NSArray *recruits = [[SJHCoreDataHandler dataHandler] getRecruitsNotUploaded];
+//    for (SJHRecruit *recruit in recruits) {
+//        NSLog(@"Name: %@", recruit.name);
+//        NSLog(@"Email: %@", recruit.email);
+//        NSLog(@"Major: %@", recruit.major);
+//        NSLog(@"Year: %@", recruit.year);
+//        NSLog(@"Uploaded: %@", recruit.uploaded);
+//    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

@@ -255,6 +255,7 @@
         if (response.statusCode == 499) {
             recruit.uploaded = [NSNumber numberWithBool:YES];
             [self saveContext];
+            [self uploadRecruitsRecursively:recruits index:index + 1 retry:NO];
         }
         else {
             if (!retry) {
