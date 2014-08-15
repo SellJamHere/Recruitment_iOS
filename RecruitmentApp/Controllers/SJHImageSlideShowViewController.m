@@ -83,4 +83,8 @@
     [self.frostedViewController presentMenuViewController];
 }
 
+- (IBAction)settingsButtonTouched:(id)sender {
+    //Show Settings View
+}
+
 @end

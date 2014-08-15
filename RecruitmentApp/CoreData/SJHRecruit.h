@@ -17,7 +17,8 @@
 @property (nonatomic, retain) NSString * major;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * year;
-@property (nonatomic, retain) NSNumber * uploaded;
+@property (nonatomic, retain) NSNumber * isUploaded;
+@property (nonatomic, retain) NSNumber * isMale;
 
 - (SJHRecruitJSONModel *)JSONrecruit;
 

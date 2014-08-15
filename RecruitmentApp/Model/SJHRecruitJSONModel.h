@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSNumber *year;
 @property (strong, nonatomic) NSString *major;
+@property (strong, nonatomic) NSNumber *isMale;
 
 - (instancetype)initWithRecruit:(SJHRecruit *)recruit;
 

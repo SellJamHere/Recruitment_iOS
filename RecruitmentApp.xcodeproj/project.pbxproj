@@ -25,6 +25,7 @@
 		820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F21990C25E00413F6F /* SJHRegistrationViewController.m */; };
 		820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F51991F64200413F6F /* SJHImageSlideShowViewController.m */; };
 		820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */; };
+		820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */; };
 		82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270111199ADDC3002AC4F4 /* SJHRecruit.m */; };
 		82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */; };
 		82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */; };
@@ -79,6 +80,8 @@
 		820ED6F51991F64200413F6F /* SJHImageSlideShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHImageSlideShowViewController.m; path = Controllers/SJHImageSlideShowViewController.m; sourceTree = "<group>"; };
 		820ED6F71992000B00413F6F /* UIViewController+AutorotateRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+AutorotateRules.h"; path = "Controllers/UIViewController+AutorotateRules.h"; sourceTree = "<group>"; };
 		820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+AutorotateRules.m"; path = "Controllers/UIViewController+AutorotateRules.m"; sourceTree = "<group>"; };
+		820F81F9199D9B870002B6A4 /* SJHSettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHSettingsButton.h; path = Views/SJHSettingsButton.h; sourceTree = "<group>"; };
+		820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHSettingsButton.m; path = Views/SJHSettingsButton.m; sourceTree = "<group>"; };
 		82270110199ADDC3002AC4F4 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
 		82270111199ADDC3002AC4F4 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
 		82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationHelper.h; path = Helpers/SJHRegistrationHelper.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 			children = (
 				82270117199CB4DE002AC4F4 /* SJHRegistrationTextField.h */,
 				82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */,
+				820F81F9199D9B870002B6A4 /* SJHSettingsButton.h */,
+				820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */,
+				820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */,
 				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,

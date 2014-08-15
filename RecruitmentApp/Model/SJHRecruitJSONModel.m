@@ -29,6 +29,7 @@
             self.email = recruit.email;
             self.year = recruit.year;
             self.major = recruit.major;
+            self.isMale = recruit.isMale;
         }
     }
     return self;
@@ -38,7 +39,8 @@
     NSDictionary *dictionary =  @{@"name": @"name",
                                   @"email": @"email",
                                   @"year": @"year",
-                                  @"major": @"major"};
+                                  @"major": @"major",
+                                  @"male": @"isMale"};
     
     return [[JSONKeyMapper alloc] initWithDictionary: dictionary];
 }

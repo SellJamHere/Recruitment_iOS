@@ -86,7 +86,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
         NSLog(@"Couldn't retrieve recruit: %@", error);
-        return nil;
+        return YES;
     }
     
     return [fetchedObjects count] > 0;
@@ -97,7 +97,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
                                               inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uploaded = NO"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = NO"];
     
     [fetchRequest setEntity:entity];
     [fetchRequest setPredicate:predicate];
@@ -116,7 +116,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
                                               inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uploaded = YES"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = YES"];
     
     [fetchRequest setEntity:entity];
     [fetchRequest setPredicate:predicate];
@@ -246,14 +246,14 @@
     SJHRecruit *recruit = recruits[index];
     //upload recruit at index
     [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
-        recruit.uploaded = [NSNumber numberWithBool:YES];
+        recruit.isUploaded = [NSNumber numberWithBool:YES];
         [self saveContext];
         [self uploadRecruitsRecursively:recruits index:index + 1 retry:NO];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         if (response.statusCode == 499) {
-            recruit.uploaded = [NSNumber numberWithBool:YES];
+            recruit.isUploaded = [NSNumber numberWithBool:YES];
             [self saveContext];
             [self uploadRecruitsRecursively:recruits index:index + 1 retry:NO];
         }

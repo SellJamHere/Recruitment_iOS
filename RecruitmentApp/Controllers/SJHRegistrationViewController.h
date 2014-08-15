@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet SJHRegistrationTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UITextField *majorTextField;
+@property (strong, nonatomic) IBOutlet UIView *genderSelect;
+
 
 
 - (IBAction)comeSailingButtonTouched:(id)sender;

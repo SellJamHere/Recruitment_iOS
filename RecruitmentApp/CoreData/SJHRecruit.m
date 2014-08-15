@@ -17,7 +17,8 @@
 @dynamic major;
 @dynamic name;
 @dynamic year;
-@dynamic uploaded;
+@dynamic isUploaded;
+@dynamic isMale;
 
 - (SJHRecruitJSONModel *)JSONrecruit {
     return [[SJHRecruitJSONModel alloc] initWithRecruit:self];

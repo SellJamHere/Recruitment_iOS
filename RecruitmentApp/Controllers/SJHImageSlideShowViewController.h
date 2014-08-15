@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet KASlideShow *slideShowContainerView;
 
 - (IBAction)viewTouched:(id)sender;
+- (IBAction)settingsButtonTouched:(id)sender;
 
 @end

@@ -13,6 +13,7 @@
 #import "REFrostedViewController.h"
 
 #import "MBProgressHUD.h"
+#import "HMSegmentedControl.h"
 
 #import "SJHRegistrationHelper.h"
 #import "SJHRegistrationTextField.h"
@@ -32,6 +33,8 @@
 @property (strong, nonatomic) UIPopoverController *popover;
 @property (strong, nonatomic) NSArray *majorArray;
 @property (strong, nonatomic) NSArray *yearArray;
+
+@property (strong, nonatomic) HMSegmentedControl *genderControl;
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 
@@ -53,7 +56,14 @@
     if (self) {
         self.majorArray = @[kMajorString];
         self.yearArray = @[kYearString];
+        
+        self.genderControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Male", @"Female"]];
+        self.genderControl.backgroundColor = [UIColor clearColor];
+        self.genderControl.selectionStyle = HMSegmentedControlSelectionStyleBox;
+        self.genderControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+//        self.genderControl.selectionIndicatorColor = [UIColor colorWithRed:0 green:100 blue:164 alpha:1];
     }
+    
     return self;
 }
 
@@ -71,6 +81,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.view.frame = CGRectMake(0, 0, 1024, 768);
+    self.genderControl.frame = self.genderSelect.bounds;
+    [self.genderControl removeFromSuperview];
+    [self.genderSelect addSubview:self.genderControl];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -111,7 +124,7 @@
             if ([[[SJHApiClient sharedClient] reachabilityManager] isReachable]) {
                 //try uploading recruit
                 [[SJHApiClient sharedClient] recruitPOST:recruit success:^(NSURLSessionDataTask *task, id responseObject) {
-                    recruit.uploaded = [NSNumber numberWithBool:YES];
+                    recruit.isUploaded = [NSNumber numberWithBool:YES];
                     [[SJHCoreDataHandler dataHandler] saveContext];
                     [self.hud hide:YES];
                     [self hideRegistrationView];
@@ -119,7 +132,7 @@
                     NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
                     if (response.statusCode == 499) {
                         //recruit already exists on the server
-                        recruit.uploaded = [NSNumber numberWithBool:YES];
+                        recruit.isUploaded = [NSNumber numberWithBool:YES];
                         [[SJHCoreDataHandler dataHandler] saveContext];
                     }
                     [self.hud hide:YES];
@@ -175,6 +188,7 @@
     self.emailTextField.text = @"";
     self.yearTextField.text = @"";
     self.majorTextField.text = @"";
+    [self.genderControl setSelectedSegmentIndex:0];
 }
 
 #pragma mark Popover
@@ -259,6 +273,7 @@
     recruit.email = self.emailTextField.text;
     recruit.year = [NSNumber numberWithInteger:[self.yearTextField.text integerValue]];
     recruit.major = self.majorTextField.text;
+    recruit.isMale = [NSNumber numberWithBool:[self.genderControl selectedSegmentIndex] == 0];
     
     [[SJHCoreDataHandler dataHandler] saveContext];
 }
