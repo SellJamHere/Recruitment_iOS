@@ -13,8 +13,8 @@
 
 @implementation SJHApiClient
 
-//static NSString * const kBaseUrlString = @"http://uci-sailing-recruitment.appspot.com";
-static NSString * const kBaseUrlString = @"http://localhost:8080";
+static NSString * const kBaseUrlString = @"http://uci-sailing-recruitment.appspot.com";
+//static NSString * const kBaseUrlString = @"http://localhost:8080";
 
 static NSString * const kRecruitUrlString = @"recruit";
 static NSString * const kAllRecruitsUrlString = @"recruits";
@@ -62,6 +62,14 @@ static NSString * const kAllRecruitsUrlString = @"recruits";
 
 - (NSURLSessionTask *)recruitPOST:(SJHRecruit *)recruit success:(void ( ^ ) ( NSURLSessionDataTask *task , id responseObject ))success failure:(void ( ^ ) ( NSURLSessionDataTask *task , NSError *error ))failure {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithDictionary:[[recruit JSONrecruit] toDictionary]];
+    if ([parameters objectForKey:@"male"]) {
+        if ([[parameters objectForKey:@"male"] isEqual:[NSNumber numberWithBool:YES]]) {
+            [parameters setObject:@YES forKey:@"male"];
+        }
+        else {
+            [parameters setObject:@NO forKey:@"male"];
+        }
+    }
     return [self POST:kRecruitUrlString parameters:parameters success:success failure:failure];
 }
 

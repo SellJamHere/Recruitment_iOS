@@ -15,9 +15,9 @@
 @property (strong, nonatomic) NSString <Optional> *key;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *email;
-@property (strong, nonatomic) NSNumber *year;
-@property (strong, nonatomic) NSString *major;
-@property (strong, nonatomic) NSNumber *isMale;
+@property (strong, nonatomic) NSNumber <Optional> *year;
+@property (strong, nonatomic) NSString <Optional> *major;
+@property (strong, nonatomic) NSNumber <Optional> *isMale;
 
 - (instancetype)initWithRecruit:(SJHRecruit *)recruit;
 
