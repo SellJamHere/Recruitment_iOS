@@ -28,7 +28,7 @@
 #define kMajorString @"Undecided/Undeclared", @"Aerospace Engineering", @"African American Studies", @"Anthropology", @"Art", @"Art History", @"Asian American Studies", @"Biochemistry and Molecular Biology", @"Biology/Education", @"Biological Sciences", @"Biomedical Engineering", @"Biomedical Engineering: Premedical", @"Business Administration", @"Business Economics", @"Business Information Management", @"Chemical Engineering", @"Chemistry", @"Chicano/Latino Studies", @"Chinese Studies", @"Civil Engineering", @"Classics", @"Cognitive Sciences", @"Comparative Literature", @"Computer Engineering", @"Computer Game Science", @"Computer Science", @"Computer Science and Engineering", @"Criminology, Law and Society", @"Dance", @"Developmental and Cell Biology", @"Drama", @"Earth System Science", @"East Asian Cultures", @"Ecology and Evolutionary Biology", @"Economics", @"Electrical Engineering", @"Engineering", @"English", @"Environmental Engineering", @"Environmental Science", @"European Studies", @"Film and Media Studies", @"French", @"Genetics", @"German Studies", @"Global Cultures", @"History", @"Human Biology", @"Informatics", @"International Studies", @"Japanese Language and Literature", @"Korean Literature and Culture", @"Literary Journalism", @"Materials Science Engineering", @"Mathematics", @"Mechanical Engineering", @"Microbiology and Immunology", @"Music", @"Music Theatre", @"Neurobiology", @"Nursing Science", @"Pharmaceutical Sciences", @"Philosophy", @"Physics", @"Political Science", @"Psychology", @"Psychology and Social Behavior", @"Public Health Policy", @"Public Health Sciences", @"Quantitative Economics", @"Religious Studies", @"Social Ecology", @"Social Policy and Public Service", @"Sociology", @"Software Engineering", @"Spanish", @"Urban Studies", @"Women’s Studies"
 #define kYearString @"2015", @"2016", @"2017", @"2018", @"2019", @"2020"
 
-@interface SJHRegistrationViewController ()
+@interface SJHRegistrationViewController () <UIPopoverControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIPopoverController *popover;
 @property (strong, nonatomic) NSArray *majorArray;
@@ -37,10 +37,15 @@
 @property (strong, nonatomic) HMSegmentedControl *genderControl;
 
 @property (strong, nonatomic) MBProgressHUD *hud;
+@property (strong, nonatomic) UIAlertView *alertView;
 
 @end
 
 @implementation SJHRegistrationViewController
+
+static NSString * const kAlertTextUploadSuccess = @"We'll see you out on the water :)";
+static NSString * const kAlertTextAlreadyRegistered = @"It looks like you're already registered.";
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +66,8 @@
         self.genderControl.backgroundColor = [UIColor clearColor];
         self.genderControl.selectionStyle = HMSegmentedControlSelectionStyleBox;
         self.genderControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-//        self.genderControl.selectionIndicatorColor = [UIColor colorWithRed:0 green:100 blue:164 alpha:1];
+        self.genderControl.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:28.0f];
+//        self.genderControl.selectionIndicatorColor = [UIColor colorWithRed:0 green:100/255.0 blue:164/255.0 alpha:1];
     }
     
     return self;
@@ -127,26 +133,35 @@
                     recruit.isUploaded = [NSNumber numberWithBool:YES];
                     [[SJHCoreDataHandler dataHandler] saveContext];
                     [self.hud hide:YES];
-                    [self hideRegistrationView];
+                    self.alertView = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:kAlertTextUploadSuccess delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                    [self.alertView show];
+                    
                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
                     NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
                     if (response.statusCode == 499) {
                         //recruit already exists on the server
                         recruit.isUploaded = [NSNumber numberWithBool:YES];
                         [[SJHCoreDataHandler dataHandler] saveContext];
+                        self.alertView = [[UIAlertView alloc] initWithTitle:@"Well Shoot!" message:kAlertTextAlreadyRegistered delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                    }
+                    else {
+                        self.alertView = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:kAlertTextUploadSuccess delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                     }
                     [self.hud hide:YES];
-                    [self hideRegistrationView];
+                    
+                    [self.alertView show];
                 }];
             }
             else {
                 [self.hud hide:YES afterDelay:0.5];
-                [self hideRegistrationView];
+                self.alertView = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:kAlertTextUploadSuccess delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                [self.alertView show];
             }
         }
         else {
             //Report that user has been registered already
-            [self hideRegistrationView];
+            self.alertView = [[UIAlertView alloc] initWithTitle:@"Well Shoot!!" message:kAlertTextAlreadyRegistered delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [self.alertView show];
         }
     }
 }
@@ -276,6 +291,17 @@
     recruit.isMale = [NSNumber numberWithBool:[self.genderControl selectedSegmentIndex] == 0];
     
     [[SJHCoreDataHandler dataHandler] saveContext];
+}
+
+#pragma mark - AlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.message isEqualToString:kAlertTextUploadSuccess]) {
+        [self hideRegistrationView];
+    }
+    else if ([alertView.message isEqualToString:kAlertTextAlreadyRegistered]) {
+        [self hideRegistrationView];
+    }
 }
 
 @end

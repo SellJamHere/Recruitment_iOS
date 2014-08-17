@@ -26,6 +26,11 @@
 		820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F51991F64200413F6F /* SJHImageSlideShowViewController.m */; };
 		820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */; };
 		820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */; };
+		820F8203199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F8202199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m */; };
+		820F8206199F557E0002B6A4 /* SJHRecruitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F8205199F557E0002B6A4 /* SJHRecruitTableViewCell.m */; };
+		820F8209199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F8208199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m */; };
+		820F820C199F88590002B6A4 /* SJHAdminBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F820B199F88590002B6A4 /* SJHAdminBackButton.m */; };
+		820F820F19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F820E19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m */; };
 		82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270111199ADDC3002AC4F4 /* SJHRecruit.m */; };
 		82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */; };
 		82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */; };
@@ -82,6 +87,16 @@
 		820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+AutorotateRules.m"; path = "Controllers/UIViewController+AutorotateRules.m"; sourceTree = "<group>"; };
 		820F81F9199D9B870002B6A4 /* SJHSettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHSettingsButton.h; path = Views/SJHSettingsButton.h; sourceTree = "<group>"; };
 		820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHSettingsButton.m; path = Views/SJHSettingsButton.m; sourceTree = "<group>"; };
+		820F8201199F4E020002B6A4 /* SJHAdminDataDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminDataDisplayViewController.h; path = Controllers/SJHAdminDataDisplayViewController.h; sourceTree = "<group>"; };
+		820F8202199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminDataDisplayViewController.m; path = Controllers/SJHAdminDataDisplayViewController.m; sourceTree = "<group>"; };
+		820F8204199F557E0002B6A4 /* SJHRecruitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitTableViewCell.h; path = Views/SJHRecruitTableViewCell.h; sourceTree = "<group>"; };
+		820F8205199F557E0002B6A4 /* SJHRecruitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitTableViewCell.m; path = Views/SJHRecruitTableViewCell.m; sourceTree = "<group>"; };
+		820F8207199F60D90002B6A4 /* SJHAdminSettingsTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminSettingsTabBarController.h; path = Controllers/SJHAdminSettingsTabBarController.h; sourceTree = "<group>"; };
+		820F8208199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminSettingsTabBarController.m; path = Controllers/SJHAdminSettingsTabBarController.m; sourceTree = "<group>"; };
+		820F820A199F88590002B6A4 /* SJHAdminBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminBackButton.h; path = Views/SJHAdminBackButton.h; sourceTree = "<group>"; };
+		820F820B199F88590002B6A4 /* SJHAdminBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminBackButton.m; path = Views/SJHAdminBackButton.m; sourceTree = "<group>"; };
+		820F820D19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminRecruitStatsView.h; path = Views/SJHAdminRecruitStatsView.h; sourceTree = "<group>"; };
+		820F820E19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminRecruitStatsView.m; path = Views/SJHAdminRecruitStatsView.m; sourceTree = "<group>"; };
 		82270110199ADDC3002AC4F4 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
 		82270111199ADDC3002AC4F4 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
 		82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationHelper.h; path = Helpers/SJHRegistrationHelper.h; sourceTree = "<group>"; };
@@ -220,12 +235,10 @@
 				820ED6F81992000B00413F6F /* UIViewController+AutorotateRules.m */,
 				820ED6EB1990C08000413F6F /* SJHMainViewController.h */,
 				820ED6EC1990C08000413F6F /* SJHMainViewController.m */,
-				820ED6F11990C25E00413F6F /* SJHRegistrationViewController.h */,
-				820ED6F21990C25E00413F6F /* SJHRegistrationViewController.m */,
 				820ED6F41991F64200413F6F /* SJHImageSlideShowViewController.h */,
 				820ED6F51991F64200413F6F /* SJHImageSlideShowViewController.m */,
-				82E3A03D19931FDF00E2C6F5 /* SJHPopoverContentViewController.h */,
-				82E3A03E19931FDF00E2C6F5 /* SJHPopoverContentViewController.m */,
+				820F81FC199F4A8C0002B6A4 /* Registration */,
+				820F81FD199F4AB10002B6A4 /* Admin Settings */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +253,28 @@
 				820ED6EF1990C14400413F6F /* image1.jpg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		820F81FC199F4A8C0002B6A4 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				820ED6F11990C25E00413F6F /* SJHRegistrationViewController.h */,
+				820ED6F21990C25E00413F6F /* SJHRegistrationViewController.m */,
+				82E3A03D19931FDF00E2C6F5 /* SJHPopoverContentViewController.h */,
+				82E3A03E19931FDF00E2C6F5 /* SJHPopoverContentViewController.m */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		820F81FD199F4AB10002B6A4 /* Admin Settings */ = {
+			isa = PBXGroup;
+			children = (
+				820F8207199F60D90002B6A4 /* SJHAdminSettingsTabBarController.h */,
+				820F8208199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m */,
+				820F8201199F4E020002B6A4 /* SJHAdminDataDisplayViewController.h */,
+				820F8202199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m */,
+			);
+			name = "Admin Settings";
 			sourceTree = "<group>";
 		};
 		82270113199CB449002AC4F4 /* Helpers */ = {
@@ -258,6 +293,12 @@
 				82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */,
 				820F81F9199D9B870002B6A4 /* SJHSettingsButton.h */,
 				820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */,
+				820F8204199F557E0002B6A4 /* SJHRecruitTableViewCell.h */,
+				820F8205199F557E0002B6A4 /* SJHRecruitTableViewCell.m */,
+				820F820A199F88590002B6A4 /* SJHAdminBackButton.h */,
+				820F820B199F88590002B6A4 /* SJHAdminBackButton.m */,
+				820F820D19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.h */,
+				820F820E19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -443,17 +484,22 @@
 				82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */,
 				820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */,
 				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
+				820F8203199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
 				820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */,
+				820F820F19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m in Sources */,
 				820ED6C21990B93B00413F6F /* main.m in Sources */,
 				82E3A04019931FDF00E2C6F5 /* SJHPopoverContentViewController.m in Sources */,
 				82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */,
 				820ED6F61991F64200413F6F /* SJHImageSlideShowViewController.m in Sources */,
 				82E3A0AB199ABBB700E2C6F5 /* SJHCoreDataHandler.m in Sources */,
+				820F820C199F88590002B6A4 /* SJHAdminBackButton.m in Sources */,
 				820ED6ED1990C08000413F6F /* SJHMainViewController.m in Sources */,
 				82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */,
+				820F8206199F557E0002B6A4 /* SJHRecruitTableViewCell.m in Sources */,
 				82E3A0B1199ABF9A00E2C6F5 /* SJHRecruitmentApp.xcdatamodeld in Sources */,
+				820F8209199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m in Sources */,
 				82E3A04D1999E99800E2C6F5 /* SJHApiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

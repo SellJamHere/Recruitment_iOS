@@ -16,7 +16,7 @@
 
 @end
 
-@interface SJHRegistrationViewController : UIViewController <UITextFieldDelegate, UIPopoverControllerDelegate, SJHPopoverDismissDelegate>
+@interface SJHRegistrationViewController : UIViewController <UITextFieldDelegate, SJHPopoverDismissDelegate>
 
 @property (weak, nonatomic) IBOutlet SJHRegistrationTextField *nameTextField;
 @property (weak, nonatomic) IBOutlet SJHRegistrationTextField *emailTextField;
