@@ -31,6 +31,9 @@
 		820F8209199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F8208199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m */; };
 		820F820C199F88590002B6A4 /* SJHAdminBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F820B199F88590002B6A4 /* SJHAdminBackButton.m */; };
 		820F820F19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F820E19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m */; };
+		820F821219A12C370002B6A4 /* SJHRecruitsStatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821119A12C370002B6A4 /* SJHRecruitsStatisticsModel.m */; };
+		820F821519A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821419A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m */; };
+		820F821819A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821719A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m */; };
 		82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270111199ADDC3002AC4F4 /* SJHRecruit.m */; };
 		82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */; };
 		82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */; };
@@ -97,6 +100,12 @@
 		820F820B199F88590002B6A4 /* SJHAdminBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminBackButton.m; path = Views/SJHAdminBackButton.m; sourceTree = "<group>"; };
 		820F820D19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminRecruitStatsView.h; path = Views/SJHAdminRecruitStatsView.h; sourceTree = "<group>"; };
 		820F820E19A09EFE0002B6A4 /* SJHAdminRecruitStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminRecruitStatsView.m; path = Views/SJHAdminRecruitStatsView.m; sourceTree = "<group>"; };
+		820F821019A12C370002B6A4 /* SJHRecruitsStatisticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitsStatisticsModel.h; path = Helpers/SJHRecruitsStatisticsModel.h; sourceTree = "<group>"; };
+		820F821119A12C370002B6A4 /* SJHRecruitsStatisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitsStatisticsModel.m; path = Helpers/SJHRecruitsStatisticsModel.m; sourceTree = "<group>"; };
+		820F821319A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruitsStasticsViewModel.h; path = ViewModels/SJHRecruitsStasticsViewModel.h; sourceTree = "<group>"; };
+		820F821419A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitsStasticsViewModel.m; path = ViewModels/SJHRecruitsStasticsViewModel.m; sourceTree = "<group>"; };
+		820F821619A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminOnlineDataDisplayViewController.h; path = Controllers/SJHAdminOnlineDataDisplayViewController.h; sourceTree = "<group>"; };
+		820F821719A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminOnlineDataDisplayViewController.m; path = Controllers/SJHAdminOnlineDataDisplayViewController.m; sourceTree = "<group>"; };
 		82270110199ADDC3002AC4F4 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
 		82270111199ADDC3002AC4F4 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
 		82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationHelper.h; path = Helpers/SJHRegistrationHelper.h; sourceTree = "<group>"; };
@@ -273,6 +282,8 @@
 				820F8208199F60D90002B6A4 /* SJHAdminSettingsTabBarController.m */,
 				820F8201199F4E020002B6A4 /* SJHAdminDataDisplayViewController.h */,
 				820F8202199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m */,
+				820F821619A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.h */,
+				820F821719A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m */,
 			);
 			name = "Admin Settings";
 			sourceTree = "<group>";
@@ -317,6 +328,8 @@
 			children = (
 				82E3A0A5199AB6DD00E2C6F5 /* SJHRecruitJSONModel.h */,
 				82E3A0A6199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m */,
+				820F821019A12C370002B6A4 /* SJHRecruitsStatisticsModel.h */,
+				820F821119A12C370002B6A4 /* SJHRecruitsStatisticsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -324,6 +337,8 @@
 		82E3A0A4199AB42900E2C6F5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				820F821319A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.h */,
+				820F821419A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -482,9 +497,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */,
+				820F821519A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m in Sources */,
 				820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */,
 				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
 				820F8203199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m in Sources */,
+				820F821219A12C370002B6A4 /* SJHRecruitsStatisticsModel.m in Sources */,
+				820F821819A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m in Sources */,
 				820ED6F31990C25E00413F6F /* SJHRegistrationViewController.m in Sources */,
 				820ED6F91992000B00413F6F /* UIViewController+AutorotateRules.m in Sources */,
 				820ED6C61990B93B00413F6F /* SJHAppDelegate.m in Sources */,

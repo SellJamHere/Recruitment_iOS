@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class SJHRecruitsStatisticsModel;
+
 @interface SJHAdminRecruitStatsView : UIView
+
+@property (weak, nonatomic) SJHRecruitsStatisticsModel *recruitsStasticsModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *maleCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *femaleCountLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *freshmanCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sophomoreCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *juniorCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *seniorCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *superSeniorCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2015CountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2016CountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2017CountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2018CountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2019CountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *graduate2020CountLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *major0Label;
 @property (weak, nonatomic) IBOutlet UILabel *major0CountLabel;

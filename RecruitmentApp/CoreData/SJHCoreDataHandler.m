@@ -19,6 +19,8 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+static NSString * const kRecruitEntityName = @"SJHRecruit";
+
 + (instancetype)dataHandler {
     static SJHCoreDataHandler *sharedInstance;
     static dispatch_once_t onceToken;
@@ -51,84 +53,13 @@
     return sharedInstance;
 }
 
-#pragma mark - Data Access
+#pragma mark - Entity creation
 
 - (SJHRecruit *)newRecruit {
     return [NSEntityDescription insertNewObjectForEntityForName:@"SJHRecruit" inManagedObjectContext:[self managedObjectContext]];
 }
 
-- (NSArray *)getRecruits {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"Couldn't retrieve recruits: %@", error);
-        return nil;
-    }
-    
-    return fetchedObjects;
-}
 
-- (BOOL)recruitAlreadyStoredForEmail:(NSString *)email {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
-                                              inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"email LIKE \"%@\"", email]];
-    
-    [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:predicate];
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"Couldn't retrieve recruit: %@", error);
-        return YES;
-    }
-    
-    return [fetchedObjects count] > 0;
-}
-
-- (NSArray *)getRecruitsNotUploaded {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
-                                              inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = NO"];
-    
-    [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:predicate];
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"Couldn't retrieve recruits: %@", error);
-        return nil;
-    }
-    
-    return fetchedObjects;
-}
-
-- (NSArray *)getRecruitsUploaded {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SJHRecruit"
-                                              inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = YES"];
-    
-    [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:predicate];
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"Couldn't retrieve recruits: %@", error);
-        return nil;
-    }
-    
-    return fetchedObjects;
-}
 
 #pragma mark - Core Data stack
 
@@ -226,6 +157,119 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+#pragma mark - Data Access Queries
+
+- (NSArray *)getRecruits {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruits: %@", error);
+        return nil;
+    }
+    
+    return fetchedObjects;
+}
+
+- (BOOL)recruitAlreadyStoredForEmail:(NSString *)email {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"email LIKE \"%@\"", email]];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruit: %@", error);
+        return YES;
+    }
+    
+    return [fetchedObjects count] > 0;
+}
+
+- (NSArray *)getRecruitsNotUploaded {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = NO"];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruits: %@", error);
+        return nil;
+    }
+    
+    return fetchedObjects;
+}
+
+- (NSArray *)getRecruitsUploaded {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUploaded = YES"];
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Couldn't retrieve recruits: %@", error);
+        return nil;
+    }
+    
+    return fetchedObjects;
+}
+
+//- (NSInteger)countMaleRecruits {
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+//                                              inManagedObjectContext:context];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isMale = YES"];
+//    
+//    [fetchRequest setEntity:entity];
+//    [fetchRequest setPredicate:predicate];
+//    NSError *error;
+//    NSInteger count = [context countForFetchRequest:fetchRequest error:&error];
+//    if (error) {
+//        NSLog(@"Error counting male recruits: %@", error);
+//        return -1;
+//    }
+//    
+//    return count;
+//}
+//
+//- (NSInteger)countFemaleRecruits {
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:kRecruitEntityName
+//                                              inManagedObjectContext:context];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isMale = NO"];
+//    
+//    [fetchRequest setEntity:entity];
+//    [fetchRequest setPredicate:predicate];
+//    NSError *error;
+//    NSInteger count = [context countForFetchRequest:fetchRequest error:&error];
+//    if (error) {
+//        NSLog(@"Error counting female recruits: %@", error);
+//        return -1;
+//    }
+//    
+//    return count;
+//}
 
 #pragma mark - Reachability
 

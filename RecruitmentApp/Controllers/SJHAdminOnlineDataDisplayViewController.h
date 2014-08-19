@@ -1,8 +1,8 @@
 //
-//  SJHAdminDataDisplayViewController.h
+//  SJHAdminOnlineDataDisplayViewController.h
 //  RecruitmentApp
 //
-//  Created by James Heller on 8/16/14.
+//  Created by James Heller on 8/18/14.
 //  Copyright (c) 2014 UCISailingTeam. All rights reserved.
 //
 
@@ -10,10 +10,9 @@
 
 @class SJHAdminRecruitStatsView;
 
-@interface SJHAdminDataDisplayViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SJHAdminOnlineDataDisplayViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *sideBar;
-@property (weak, nonatomic) IBOutlet UIView *sortingSelectorView;
 @property (weak, nonatomic) IBOutlet SJHAdminRecruitStatsView *recruitStatsView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

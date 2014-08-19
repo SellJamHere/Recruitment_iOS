@@ -14,8 +14,10 @@
 #import "HMSegmentedControl.h"
 
 #import "SJHCoreDataHandler.h"
+#import "SJHRecruitsStasticsViewModel.h"
 
 #import "SJHRecruitTableViewCell.h"
+#import "SJHAdminRecruitStatsView.h"
 
 #import "SJHRecruit.h"
 
@@ -25,7 +27,9 @@
 @property (strong, nonatomic) NSArray *uploadedRecruits;
 @property (strong, nonatomic) NSArray *notUploadedRecruits;
 
-@property (strong, nonatomic) HMSegmentedControl *recruitSortSelector;
+@property (strong, nonatomic) HMSegmentedControl *sortingSelector;
+
+@property (strong, nonatomic) SJHRecruitsStasticsViewModel *recruitStasticsViewModel;
 
 @end
 
@@ -44,20 +48,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.recruitSortSelector = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Total", @"Uploaded", @"Not Yet"]];
-    self.recruitSortSelector.backgroundColor = [UIColor clearColor];
-    self.recruitSortSelector.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-    self.recruitSortSelector.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    self.recruitSortSelector.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f];
-    self.recruitSortSelector.selectionIndicatorColor = [UIColor colorWithRed:0 green:100/255.0 blue:164/255.0 alpha:1];
-    __block UITableView *tableview = self.tableView;
-    [self.recruitSortSelector setIndexChangeBlock:^(NSInteger index) {
-        [tableview reloadData];
-    }];
+    [self loadSortingSelector];
     
-    self.recruitSortSelector.frame = self.sortingSelectorView.bounds;
-    [self.recruitSortSelector removeFromSuperview];
-    [self.sortingSelectorView addSubview:self.recruitSortSelector];
+    
     
     [self loadData];
 }
@@ -68,34 +61,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    
-//    
-//
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)loadSortingSelector {
+    self.sortingSelector = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Total", @"Uploaded", @"Not Yet"]];
+    self.sortingSelector.backgroundColor = [UIColor clearColor];
+    self.sortingSelector.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+    self.sortingSelector.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    self.sortingSelector.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f];
+    self.sortingSelector.selectionIndicatorColor = [UIColor colorWithRed:0 green:100/255.0 blue:164/255.0 alpha:1];
+    __block UITableView *tableview = self.tableView;
+    [self.sortingSelector setIndexChangeBlock:^(NSInteger index) {
+        [tableview reloadData];
+    }];
+    
+    self.sortingSelector.frame = self.sortingSelectorView.bounds;
+    [self.sortingSelector removeFromSuperview];
+    [self.sortingSelectorView addSubview:self.sortingSelector];
 }
-*/
 
 - (void)loadData {
-    if (self.displayType == SJHAdminDataDisplayTypeLocal) {
-        //load locally saved recruits
-        self.recruits = [[SJHCoreDataHandler dataHandler] getRecruits];
-        self.uploadedRecruits = [self.recruits filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isUploaded = YES"]];
-        self.notUploadedRecruits = [self.recruits filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isUploaded = NO"]];
-    }
-    else if (self.displayType == SJHAdminDataDisplayTypeOnline) {
-        //load recruits from online
-    }
+    //load all saved recruits
+    self.recruits = [[SJHCoreDataHandler dataHandler] getRecruits];
+    self.recruitStasticsViewModel = [[SJHRecruitsStasticsViewModel alloc] initWithRecruits:self.recruits];
+    //uploaded recruits
+    self.uploadedRecruits = [self.recruits filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isUploaded = YES"]];
+    //not uploaded recruits
+    self.notUploadedRecruits = [self.recruits filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isUploaded = NO"]];
+    
+    //load stats
+    [self loadStats];
+}
+
+- (void)loadStats {
+    self.recruitStatsView.recruitsStasticsModel = self.recruitStasticsViewModel.recruitsStasticsModel;
 }
 
 - (IBAction)backButtonTouched:(id)sender {
@@ -111,20 +108,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.displayType == SJHAdminDataDisplayTypeLocal) {
-        if ([self.recruitSortSelector selectedSegmentIndex] == 0) {
-            //Total
-            return [self.recruits count];
-        }
-        else if ([self.recruitSortSelector selectedSegmentIndex] == 1) {
-            //Uploaded
-            return [self.uploadedRecruits count];
-        }
-        else if ([self.recruitSortSelector selectedSegmentIndex] == 2) {
-            //Not yet uploaded
-            return [self.notUploadedRecruits count];
-        }
+
+    if ([self.sortingSelector selectedSegmentIndex] == 0) {
+        //Total
+        return [self.recruits count];
     }
+    else if ([self.sortingSelector selectedSegmentIndex] == 1) {
+        //Uploaded
+        return [self.uploadedRecruits count];
+    }
+    else if ([self.sortingSelector selectedSegmentIndex] == 2) {
+        //Not yet uploaded
+        return [self.notUploadedRecruits count];
+    }
+    
     return [self.recruits count];
 }
 
@@ -133,15 +130,15 @@
     SJHRecruitTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecruitCell"];
     
     SJHRecruit *recruit;
-    if ([self.recruitSortSelector selectedSegmentIndex] == 0) {
+    if ([self.sortingSelector selectedSegmentIndex] == 0) {
         //Total
         recruit = self.recruits[indexPath.row];
     }
-    else if ([self.recruitSortSelector selectedSegmentIndex] == 1) {
+    else if ([self.sortingSelector selectedSegmentIndex] == 1) {
         //Uploaded
         recruit = self.uploadedRecruits[indexPath.row];
     }
-    else if ([self.recruitSortSelector selectedSegmentIndex] == 2) {
+    else if ([self.sortingSelector selectedSegmentIndex] == 2) {
         //Not yet uploaded
         recruit = self.notUploadedRecruits[indexPath.row];
     }
