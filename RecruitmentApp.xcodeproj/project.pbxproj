@@ -34,6 +34,7 @@
 		820F821219A12C370002B6A4 /* SJHRecruitsStatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821119A12C370002B6A4 /* SJHRecruitsStatisticsModel.m */; };
 		820F821519A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821419A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m */; };
 		820F821819A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821719A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m */; };
+		820F821B19A3DF9D0002B6A4 /* SJHCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F821A19A3DF9D0002B6A4 /* SJHCancelButton.m */; };
 		82270112199ADDC3002AC4F4 /* SJHRecruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270111199ADDC3002AC4F4 /* SJHRecruit.m */; };
 		82270116199CB478002AC4F4 /* SJHRegistrationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270115199CB478002AC4F4 /* SJHRegistrationHelper.m */; };
 		82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */; };
@@ -62,7 +63,7 @@
 
 /* Begin PBXFileReference section */
 		36ED7378FA5C472EA9A0A15B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		820ED6B21990B93B00413F6F /* RecruitmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecruitmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		820ED6B21990B93B00413F6F /* Anteater Sailing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anteater Sailing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		820ED6B51990B93B00413F6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		820ED6B71990B93B00413F6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		820ED6B91990B93B00413F6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -106,6 +107,8 @@
 		820F821419A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruitsStasticsViewModel.m; path = ViewModels/SJHRecruitsStasticsViewModel.m; sourceTree = "<group>"; };
 		820F821619A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHAdminOnlineDataDisplayViewController.h; path = Controllers/SJHAdminOnlineDataDisplayViewController.h; sourceTree = "<group>"; };
 		820F821719A1F41F0002B6A4 /* SJHAdminOnlineDataDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHAdminOnlineDataDisplayViewController.m; path = Controllers/SJHAdminOnlineDataDisplayViewController.m; sourceTree = "<group>"; };
+		820F821919A3DF9D0002B6A4 /* SJHCancelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHCancelButton.h; path = Views/SJHCancelButton.h; sourceTree = "<group>"; };
+		820F821A19A3DF9D0002B6A4 /* SJHCancelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHCancelButton.m; path = Views/SJHCancelButton.m; sourceTree = "<group>"; };
 		82270110199ADDC3002AC4F4 /* SJHRecruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRecruit.h; path = CoreData/SJHRecruit.h; sourceTree = "<group>"; };
 		82270111199ADDC3002AC4F4 /* SJHRecruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJHRecruit.m; path = CoreData/SJHRecruit.m; sourceTree = "<group>"; };
 		82270114199CB478002AC4F4 /* SJHRegistrationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJHRegistrationHelper.h; path = Helpers/SJHRegistrationHelper.h; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 		820ED6B31990B93B00413F6F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				820ED6B21990B93B00413F6F /* RecruitmentApp.app */,
+				820ED6B21990B93B00413F6F /* Anteater Sailing.app */,
 				820ED6D31990B93C00413F6F /* RecruitmentAppTests.xctest */,
 			);
 			name = Products;
@@ -304,6 +307,8 @@
 				82270118199CB4DE002AC4F4 /* SJHRegistrationTextField.m */,
 				820F81F9199D9B870002B6A4 /* SJHSettingsButton.h */,
 				820F81FA199D9B870002B6A4 /* SJHSettingsButton.m */,
+				820F821919A3DF9D0002B6A4 /* SJHCancelButton.h */,
+				820F821A19A3DF9D0002B6A4 /* SJHCancelButton.m */,
 				820F8204199F557E0002B6A4 /* SJHRecruitTableViewCell.h */,
 				820F8205199F557E0002B6A4 /* SJHRecruitTableViewCell.m */,
 				820F820A199F88590002B6A4 /* SJHAdminBackButton.h */,
@@ -374,7 +379,7 @@
 			);
 			name = RecruitmentApp;
 			productName = RecruitmentApp;
-			productReference = 820ED6B21990B93B00413F6F /* RecruitmentApp.app */;
+			productReference = 820ED6B21990B93B00413F6F /* Anteater Sailing.app */;
 			productType = "com.apple.product-type.application";
 		};
 		820ED6D21990B93C00413F6F /* RecruitmentAppTests */ = {
@@ -499,6 +504,7 @@
 				82270119199CB4DE002AC4F4 /* SJHRegistrationTextField.m in Sources */,
 				820F821519A1358A0002B6A4 /* SJHRecruitsStasticsViewModel.m in Sources */,
 				820F81FB199D9B870002B6A4 /* SJHSettingsButton.m in Sources */,
+				820F821B19A3DF9D0002B6A4 /* SJHCancelButton.m in Sources */,
 				82E3A0A7199AB6DD00E2C6F5 /* SJHRecruitJSONModel.m in Sources */,
 				820F8203199F4E020002B6A4 /* SJHAdminDataDisplayViewController.m in Sources */,
 				820F821219A12C370002B6A4 /* SJHRecruitsStatisticsModel.m in Sources */,
@@ -651,7 +657,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecruitmentApp/RecruitmentApp-Prefix.pch";
 				INFOPLIST_FILE = "RecruitmentApp/RecruitmentApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Anteater Sailing";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -662,7 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: James Heller (C357K8B9EX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecruitmentApp/RecruitmentApp-Prefix.pch";
 				INFOPLIST_FILE = "RecruitmentApp/RecruitmentApp-Info.plist";

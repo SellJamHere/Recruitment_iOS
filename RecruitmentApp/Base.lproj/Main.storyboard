@@ -131,6 +131,16 @@
                                     <action selector="backgroundTouched:" destination="t2P-Pa-M2S" eventType="touchUpInside" id="7Si-b3-6If"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yf-CO-GH9" customClass="SJHCancelButton">
+                                <rect key="frame" x="0.0" y="718" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTouched:" destination="t2P-Pa-M2S" eventType="touchUpInside" id="gie-IQ-W6T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -143,6 +153,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <connections>
                             <action selector="backgroundTouched:" destination="t2P-Pa-M2S" eventType="touchUpInside" id="Kbt-Id-hPW"/>
+                            <outletCollection property="gestureRecognizers" destination="l7a-AF-FjZ" appends="YES" id="mmj-HI-ocJ"/>
                         </connections>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -157,6 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDv-XA-wCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="TNv-fp-f8R"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="l7a-AF-FjZ"/>
             </objects>
             <point key="canvasLocation" x="-111" y="-1282"/>
         </scene>

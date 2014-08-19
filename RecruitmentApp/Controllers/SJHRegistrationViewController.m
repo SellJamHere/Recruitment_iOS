@@ -198,6 +198,12 @@ static NSString * const kAlertTextAlreadyRegistered = @"It looks like you're alr
     [self.emailTextField resignFirstResponder];
 }
 
+- (IBAction)backButtonTouched:(id)sender {
+    [self.nameTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
+    [self hideRegistrationView];
+}
+
 - (void)resetRegistrationForm {
     self.nameTextField.text = @"";
     self.emailTextField.text = @"";

@@ -29,6 +29,8 @@
 - (IBAction)comeSailingButtonTouched:(id)sender;
 - (IBAction)backgroundTouched:(id)sender;
 
+
+- (IBAction)backButtonTouched:(id)sender;
 - (void)resetRegistrationForm;
 
 @end
