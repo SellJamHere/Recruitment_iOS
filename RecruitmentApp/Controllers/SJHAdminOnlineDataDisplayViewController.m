@@ -77,8 +77,8 @@
             for (NSDictionary *recruitDict in responseObject) {
                 SJHRecruitJSONModel *jsonRecruit = [[SJHRecruitJSONModel alloc] initWithDictionary:recruitDict error:&error];
                 [recruits addObject: jsonRecruit];
-                if (jsonRecruit.isMale == nil) {
-                    jsonRecruit.isMale = [NSNumber numberWithBool:NO];
+                if (jsonRecruit.major == nil) {
+                    jsonRecruit.major = @"Undecided/Undeclared";
                 }
             }
             self.recruits = [recruits copy];
