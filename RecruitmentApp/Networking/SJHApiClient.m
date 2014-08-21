@@ -13,8 +13,8 @@
 
 @implementation SJHApiClient
 
-//static NSString * const kBaseUrlString = @"http://uci-sailing-recruitment.appspot.com";
-static NSString * const kBaseUrlString = @"http://localhost:8080";
+static NSString * const kBaseUrlString = @"http://uci-sailing-recruitment.appspot.com";
+//static NSString * const kBaseUrlString = @"http://localhost:8080";
 
 static NSString * const kRecruitUrlString = @"recruit";
 static NSString * const kAllRecruitsUrlString = @"recruits";

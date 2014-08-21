@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "HMSegmentedControl.h"
 
+#import "SJHApiClient.h"
 #import "SJHCoreDataHandler.h"
 #import "SJHRecruitsStasticsViewModel.h"
 
@@ -21,7 +22,7 @@
 
 #import "SJHRecruit.h"
 
-@interface SJHAdminDataDisplayViewController ()
+@interface SJHAdminDataDisplayViewController () <SWTableViewCellDelegate>
 
 @property (strong, nonatomic) NSArray *recruits;
 @property (strong, nonatomic) NSArray *uploadedRecruits;
@@ -143,6 +144,9 @@
         recruit = self.notUploadedRecruits[indexPath.row];
     }
     
+    cell.rightUtilityButtons = nil;
+    cell.delegate = nil;
+    
     cell.nameLabel.text = recruit.name;
     cell.emailLabel.text = recruit.email;
     cell.majorLabel.text = recruit.major;
@@ -163,15 +167,41 @@
     else {
         cell.uploadedLabel.text = @"No";
         cell.uploadedLabel.textColor = [UIColor redColor];
+        cell.rightUtilityButtons = [self rightUtilityButtons];
+        cell.delegate = self;
     }
     
     return cell;
+}
+
+- (NSArray *)rightUtilityButtons {
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0 green:170/255.0 blue:0 alpha:1]
+                                                title:@"Upload"];
+    
+    return [rightUtilityButtons copy];
 }
 
 #pragma mark UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark SWTableViewCell Delegate
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    if ([[[SJHApiClient sharedClient] reachabilityManager] isReachable]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        [[SJHApiClient sharedClient] recruitPOST:self.recruits[indexPath.row] success:^(NSURLSessionDataTask *task, id responseObject) {
+            SJHRecruit *recruit = self.recruits[indexPath.row];
+            recruit.isUploaded = @YES;
+            [[SJHCoreDataHandler dataHandler] saveContext];
+            [self.tableView reloadData];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 @end

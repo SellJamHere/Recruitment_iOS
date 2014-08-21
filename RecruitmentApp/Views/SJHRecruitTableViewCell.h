@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SJHRecruitTableViewCell : UITableViewCell
+#import "SWTableViewCell.h"
+
+@interface SJHRecruitTableViewCell : SWTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
